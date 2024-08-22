@@ -163,3 +163,4 @@ cython_debug/
 
 # ignore account.json
 account.json
+commands.txt
