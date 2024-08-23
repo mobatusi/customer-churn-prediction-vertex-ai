@@ -1,0 +1,6 @@
+pandas
+seaborn
+google-cloud-aiplatform
+google-cloud-storage
+python-dotenv
+matplotlib
