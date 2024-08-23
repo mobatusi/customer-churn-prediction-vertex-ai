@@ -85,9 +85,31 @@ Here is an example snippet from the notebook to check the deployed models and ma
                 print("Model deployed, you can move to prediction phase")
 
     # Example code to make a prediction
-    prediction = endpoint.predict(instances=[your_instance_data])
+    prediction = endpoint.predict(
+    [
+        { "Age": "22",
+        "Gender": "Female",
+        "Tenure": "25",
+        "UsageFrequency": "14", 
+        "SupportCalls": "4",
+        "PaymentDelay": "27", 
+        "SubscriptionType": "Basic", 
+        "ContractLength": "Monthly", 
+        "TotalSpend": "598", 
+        "LastInteraction": "9" 
+        }
+    ]
+    )
+prediction
     print("Prediction:", prediction)
 ```    
+
+The prediction returned:
+```python
+Prediction(predictions=[{'classes': ['1.0', '0.0'], 'scores': [0.9967918992042542, 0.003208057722076774]}], deployed_model_id='2783093727831261184', metadata=None, model_version_id='1', model_resource_name='projects/692127285617/locations/us-central1/models/1920320147654967296', explanations=None)
+```
+This means that the customer is very likely to churn, as the probability of churning (0.9967918992042542) is significantly higher than the probability of not churning (0.003208057722076774).
+
 
 ## Conclusion
 By following the steps in the notebook, you can develop a customer churn prediction model, deploy it to Google Cloud AI Platform, and make online predictions. Ensure you have the necessary permissions and configurations set up in your Google Cloud project.
